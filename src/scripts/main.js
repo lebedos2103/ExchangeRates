@@ -17,9 +17,20 @@ let currenciesElem = document.querySelector(".currencies"),
 let dateController = new DateController(dateStart, dateStart);
 let exchanger = new Exchanger();
 let currencies, currenciesCount = 7;
-let chart = new ChartController(ctx);
+let chart;
 
-Promise.resolve()
+new Promise((resolve, reject) => {
+    if (!isChartExist()) {
+        let script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/chart.js@2.8.0";
+        script.onload = () => resolve();
+        script.onerror = () => {
+            alert("Something go wrong");
+            reject();
+        }
+    } else
+        resolve();
+})
     .then(() => initDate())
     .then(() => initCurrencies())
     .then(() => initChart())
@@ -94,6 +105,7 @@ async function initCurrencies() {
 }
 
 async function initChart() {
+    chart = new ChartController(ctx);
     updateChart(new Date(dateStart.value), new Date(dateEnd.value));
 }
 
@@ -231,6 +243,15 @@ async function updateChart(dateStart, dateEnd) {
         } else
             chart.removeByName(currency.code)
     }));
+}
+
+function isChartExist() {
+    try {
+        new Chart();
+        return true;
+    } catch (e){
+        return false
+    }
 }
 
 function generateColor() {
