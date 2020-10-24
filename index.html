@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+</head>
+<body>
+<div class="page">
+    <div class="page__content content">
+        <div class="content__item content__item_small">
+            <form class="currencies" action>
+                <div class="currencies__wrapper">
+                </div>
+                <div class="currencies__popup hidden">
+                </div>
+                <button class="currencies__more">MORE</button>
+            </form>
+        </div>
+        <div class="content__item content__item_big">
+            <div class="data">
+                <ul class="tab">
+                    <li class="tab__item tab__item_selected">Chart</li>
+                    <li class="tab__item">Table</li>
+                </ul>
+                <div class="wrapper chart-wrapper ">
+                    <canvas class="chart"></canvas>
+                </div>
+                <div class="wrapper table-wrapper hidden">
+                    <input type="text" class="table-search" placeholder="Currency...">
+                    <table class="table">
+                        <tr class="table__row">
+                            <th>Company</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                        </tr>
+                        <tr class="table__row">
+                            <td>Microsoft</td>
+                            <td>20.3</td>
+                            <td>30.5</td>
+                            <td>23.5</td>
+                            <td>40.3</td>
+                        </tr>
+                        <tr class="table__row">
+                            <td>Google</td>
+                            <td>50.2</td>
+                            <td>40.63</td>
+                            <td>45.23</td>
+                            <td>39.3</td>
+                        </tr>
+                        <tr class="table__row">
+                            <td>Apple</td>
+                            <td>25.4</td>
+                            <td>30.2</td>
+                            <td>33.3</td>
+                            <td>36.7</td>
+                        </tr>
+                        <tr class="table__row">
+                            <td>IBM</td>
+                            <td>20.4</td>
+                            <td>15.6</td>
+                            <td>22.3</td>
+                            <td>29.3</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page__widget">
+        <div class="date">
+            Interval from
+            <input type="date" id="dateStart" style="outline: none;">
+            to
+            <input type="date" id="dateEnd" style="outline: none;">
+            <button class="date__search">Search</button>
+        </div>
+    </div>
+</div>
+<script defer type="text/javascript"></script>
+<script src="src/scripts/main.js" type="module"></script>
+</body>
+</html>
