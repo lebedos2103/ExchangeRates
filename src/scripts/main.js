@@ -247,7 +247,7 @@ async function updateChart(dateStart, dateEnd) {
 
 function isChartExist() {
     try {
-        new Chart();
+        Chart;
         return true;
     } catch (e){
         return false
